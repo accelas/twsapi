@@ -115,6 +115,8 @@ protected:
 	// try to process single msg
 	int processMsg(const char*& ptr, const char* endPtr);
 
+	bool m_connected;
+
 private:
 
 	int bufferedSend(const char* buf, size_t sz);
@@ -168,7 +170,6 @@ private:
 
 	int m_clientId;
 
-	bool m_connected;
 	int m_serverVersion;
 	IBString m_TwsTime;
 
