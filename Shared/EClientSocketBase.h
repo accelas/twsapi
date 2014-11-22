@@ -109,6 +109,12 @@ protected:
 
 	int sendBufferedData();
 
+	// try to process connection request ack
+	int processConnectAck(const char*& ptr, const char* endPtr);
+
+	// try to process single msg
+	int processMsg(const char*& ptr, const char* endPtr);
+
 private:
 
 	int bufferedSend(const char* buf, size_t sz);
@@ -116,12 +122,6 @@ private:
 
 	// read and buffer what's available
 	int bufferedRead();
-
-	// try to process connection request ack
-	int processConnectAck(const char*& ptr, const char* endPtr);
-
-	// try to process single msg
-	int processMsg(const char*& ptr, const char* endPtr);
 
 	static bool CheckOffset(const char* ptr, const char* endPtr);
 	static const char* FindFieldEnd(const char* ptr, const char* endPtr);
